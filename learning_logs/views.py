@@ -20,7 +20,7 @@ def topics(request):
 
 @login_required
 def topic(request, topic_id):
-	topic=Topic.objects.get(id= topic_id)
+	topic=get_object_or_404(Topic,id= topic_id)
 	# Make sure the topic belongs to the current user.
 
 	if topic.owner != request.user:
